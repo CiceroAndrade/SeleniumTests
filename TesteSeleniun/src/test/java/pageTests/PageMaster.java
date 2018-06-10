@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeTest;
 
 import config.Configs;
 import config.Drivers;
-import utils.InterNaveg;
+import utils.BrowserInteraction;
 
 public class PageMaster {
 	//public static WebDriver driver= Drivers.getChromeDriver();
@@ -18,12 +18,12 @@ public class PageMaster {
 	
 	@BeforeTest
 	public void beforeTest() {
-		InterNaveg.setUrl(driver, URL);
+		BrowserInteraction.setUrl(driver, URL);
 	}
 
 	@AfterTest
 	public void afterTest() {
-		InterNaveg.encerraNavegador(driver);
+		BrowserInteraction.encerraNavegador(driver);
 	}
 
 }

@@ -45,11 +45,11 @@ public class LoginGpjPageTasks {
 	 * @param senha
 	 */
 	public void efetuaLogin (String usuario, String senha) {
-		UtilGeral.pausa(5);
+		UtilGeral.pause(5);
 		LoginGpjPageObject.campoUsuario(driver).sendKeys(usuario);
 		LoginGpjPageObject.campoSenha(driver).sendKeys(senha);
 		LoginGpjPageObject.btnEntrar(driver).click();
-		UtilGeral.esperaVisibilidade(driver, LoginGpjPageObject.btnEntrar(driver));
+		UtilGeral.visibilityElementWait(driver, LoginGpjPageObject.btnEntrar(driver));
 		Select select = new Select(LoginGpjPageObject.cbSistemas(driver));
 		select.selectByVisibleText("GPJA - Processos Judiciais");
 		LoginGpjPageObject.btnEntrar(driver).click();

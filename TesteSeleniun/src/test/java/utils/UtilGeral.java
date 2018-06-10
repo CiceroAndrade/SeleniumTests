@@ -31,7 +31,7 @@ public class UtilGeral {
 		}
 	}
 	
-	public static void pausa(int segundos){
+	public static void pause(int segundos){
 		try {
 			Thread.sleep(segundos*1000);
 		} catch (InterruptedException e) {
@@ -41,12 +41,12 @@ public class UtilGeral {
 		}
 	}
 	
-	public static void esperaVisibilidade (WebDriver driver, WebElement element) {
+	public static void visibilityElementWait (WebDriver driver, WebElement element) {
 		WebDriverWait espera = new WebDriverWait(driver, 100);
 		try {
 			espera.until(ExpectedConditions.visibilityOf(element));
 		} catch (TimeoutException | NullPointerException e)  {
-			UtilGeral.pausa(5);
+			UtilGeral.pause(5);
 		} catch (Exception e) {
 			throw e;
 		}
@@ -61,19 +61,14 @@ public class UtilGeral {
 	}
 
 	public void getEvidTela(WebDriver driver) throws IOException{
-		// Processo de cria鈬oo de nomenclatura com base em data, adicao do sufixo .png
+		// Processo de criacao de nomenclatura com base em data, adicao do sufixo .png
         Date d = new Date();
         String date = d.toString().replaceAll(":","_");
         String fileName = date + ".png";
-
         // Aponta o diretorio para guardar a evidencia e tira uma foto da tela
-
         String directory = "file:///Users/Cicero/Public/PRINT";
         File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-       
-
         // Armazena e cria o arquivo de evidencia no diretorio com o nome definido
-
         FileUtils.copyFile(sourceFile, new File(directory + fileName));
 	}
 

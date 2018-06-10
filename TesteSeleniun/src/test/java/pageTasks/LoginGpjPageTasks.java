@@ -45,7 +45,6 @@ public class LoginGpjPageTasks {
 	 * @param senha
 	 */
 	public void efetuaLogin (String usuario, String senha) {
-		UtilGeral.pause(5);
 		LoginGpjPageObject.campoUsuario(driver).sendKeys(usuario);
 		LoginGpjPageObject.campoSenha(driver).sendKeys(senha);
 		LoginGpjPageObject.btnEntrar(driver).click();

@@ -2,6 +2,7 @@ package pageTasks;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import utils.UtilGeral;
 import pageObjects.LoginGpjPageObject;;
@@ -36,6 +37,10 @@ public class LoginGpjPageTasks {
 		LoginGpjPageObject.btnEntrar(driver).submit();
 	}
 	
+	public void verificaLoginComSucesso () {
+		String codigoPagina = driver.getPageSource();
+		Assert.assertTrue(codigoPagina.contains("Tela de Entrada do Advogado"));
+	}
 	/**
 	 * Modular Driven Framework example. In most of the web application we have few set of actions which are always 
 	 * executed in the series of actions. Rather than writing those actions again and again in our test, we can club 
